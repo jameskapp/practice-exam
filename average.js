@@ -25,7 +25,7 @@ function compute_average() {
     console.log(sum);
   }
   let ave = sum / user_input.length;
-  document.getElementById("ave").innerHTML = `Average: ${ave}`;
+  document.getElementById("ave").innerHTML = `<li>Average: ${ave}</li>`;
 }
 
 function handleClick(id) {

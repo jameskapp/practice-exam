@@ -3,11 +3,46 @@
   <head>
     <title>Practice</title>
     <meta charset="utf-8">
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="average.js"></script>
+    <script crossorigin src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
   </head>
 
   <body>
     <h1>AWE</h1>
+
+    <script type="text/javascript">
+      //WITHOUT AXIOS
+      document.write("awe")
+
+      async function apiTest() {
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await res.json()
+        const inner = await data[0]
+        // return inner.name;
+        console.log('other', data)
+        // document.write(inner.name);
+      }
+      apiTest();
+    </script>
+
+    <script>
+      //WITH AXIOS
+      const api = axios.create({
+        baseURL: 'https://jsonplaceholder.typicode.com',
+      });
+
+      async function axiosTest() {
+        const res = await api.get('/users')
+        const data = await res.data
+        console.log('axios', data);
+      }
+      axiosTest();
+
+    </script>
+
+
+
+    <div style="margin-top: 10px"></div>
 
     <input type = "text" id="user_in">
     <button type = "button" onclick="handleClick('user_in');">submit</button>
